@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services | Stackly Tax Consultants</title>
+<meta name="description" content="Income tax, GST, audit, corporate and NRI tax services with transparent pricing from Stackly Tax Consultants.">
+<link rel="icon" href="./stackly.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+    /* ==========================================================
+       Stackly Tax - services.html styles
+       class prefix: stackly-services-
+       ========================================================== */
+
+    :root{
+        --bg:#070b16;
+        --card:#0f1627;
+        --line:#222c45;
+        --gold:#e6b450;
+        --gold2:#ffd98a;
+        --txt:#e8ecf6;
+        --mut:#94a0bd;
+        --r:18px;
+    }
+
+    /* ---------- BASE ---------- */
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:'Inter',sans-serif;
+        background:var(--bg);
+        color:var(--txt);
+        line-height:1.65;
+        overflow-x:hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4{
+        font-family:'Playfair Display',serif;
+        line-height:1.15;
+    }
+
+    img{
+        max-width:100%;
+        display:block;
+    }
+
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
+
+    #loader.stackly-services-is-done{
+        transform:translateY(-100%);
+    }
+
+    /* ---------- BACKGROUND ---------- */
+
+    .stackly-services-bg{
+        position:fixed;
+        inset:0;
+        z-index:-1;
+        overflow:hidden;
+        background:radial-gradient(circle at 20% 10%,#101a36,#070b16 60%);
+    }
+
+    .stackly-services-blob{
+        position:absolute;
+        border-radius:50%;
+        filter:blur(90px);
+        opacity:.5;
+    }
+
+    .stackly-services-blob-1{
+        width:480px;
+        height:480px;
+        background:#e6b450;
+        top:-120px;
+        left:-100px;
+        opacity:.28;
+    }
+
+    .stackly-services-blob-2{
+        width:560px;
+        height:560px;
+        background:#2f4cdd;
+        right:-160px;
+        top:30%;
+        opacity:.3;
+    }
+
+    .stackly-services-blob-3{
+        width:420px;
+        height:420px;
+        background:#14b8a6;
+        left:30%;
+        bottom:-160px;
+        opacity:.2;
+    }
+
+    .stackly-services-grid{
+        position:absolute;
+        inset:-50%;
+        background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);
+        background-size:60px 60px;
+        transform:perspective(700px) rotateX(55deg);
+        mask-image:radial-gradient(circle,#000 20%,transparent 70%);
+    }
+
+    .stackly-services-ring{
+        position:absolute;
+        width:520px;
+        height:520px;
+        border:1px dashed #e6b45055;
+        border-radius:50%;
+        right:8%;
+        top:12%;
+    }
+
+    /* ---------- LAYOUT & TYPOGRAPHY ---------- */
+
+    .stackly-services-wrap{
+        width:min(1200px,92%);
+        margin:auto;
+    }
+
+    section{
+        padding:0;
+        position:relative;
+    }
+
+    .stackly-services-two-col{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:60px;
+        align-items:center;
+    }
+
+    .stackly-services-word{
+        display:inline-block;
+        overflow:hidden;
+        vertical-align:bottom;
+    }
+
+    .stackly-services-char{
+        display:inline-block;
+    }
+
+    .stackly-services-eyebrow{
+        color:var(--gold);
+        letter-spacing:.2em;
+        text-transform:uppercase;
+        font-size:.8rem;
+        margin-bottom:12px;
+        display:block;
+    }
+
+    .stackly-services-sec-title{
+        font-size:clamp(2rem,4vw,3.2rem);
+        margin-bottom:50px;
+        max-width:700px;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header{
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:50;
+        backdrop-filter:blur(14px);
+        background:#070b16cc;
+        border-bottom:1px solid var(--line);
+    }
+
+    .stackly-services-header-inner{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        height:84px;
+    }
+
+    .stackly-services-logo img{
+        height:70px;
+        width:auto;
+    }
+
+    nav ul{
+        display:flex;
+        gap:28px;
+        list-style:none;
+        align-items:center;
+    }
+
+    nav a{
+        font-size:.95rem;
+        color:var(--mut);
+        transition:.3s;
+    }
+
+    nav a:hover,
+    nav a.stackly-services-is-active{
+        color:var(--gold);
+    }
+
+    .stackly-services-burger{
+        display:none;
+        background:none;
+        border:0;
+        color:var(--txt);
+        font-size:2rem;
+        cursor:pointer;
+    }
+
+    .stackly-services-burger{
+        transition:color .3s,transform .4s;
+    }
+
+    .stackly-services-burger.stackly-services-is-open{
+        color:var(--gold);
+        transform:rotate(180deg);
+    }
+
+    /* ---------- BUTTONS ---------- */
+
+    .stackly-services-btn{
+        display:inline-block;
+        padding:14px 30px;
+        border-radius:50px;
+        background:linear-gradient(135deg,var(--gold),var(--gold2));
+        color:#111;
+        font-weight:600;
+        border:0;
+        cursor:pointer;
+        transition:box-shadow .3s;
+    }
+
+    .stackly-services-btn:hover{
+        box-shadow:0 10px 40px #e6b45066;
+    }
+
+    .stackly-services-btn.stackly-services-btn-outline{
+        background:none;
+        border:1px solid var(--gold);
+        color:var(--gold);
+    }
+
+    /* ---------- HERO ---------- */
+
+    .stackly-services-hero{
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        padding-top:130px;
+    }
+
+    .stackly-services-hero.stackly-services-hero-compact{
+        min-height:55vh;
+    }
+
+    .stackly-services-hero h1{
+        font-size:clamp(2.4rem,6vw,5rem);
+        margin-bottom:22px;
+    }
+
+    .stackly-services-hero h1 em{
+        color:var(--gold);
+        font-style:normal;
+    }
+
+    .stackly-services-hero p{
+        max-width:560px;
+        color:var(--mut);
+        margin-bottom:30px;
+    }
+
+    /* ---------- CARDS ---------- */
+
+    .stackly-services-card-grid{
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        gap:26px;
+    }
+
+    .stackly-services-card{
+        background:linear-gradient(160deg,#131c33,#0d1426);
+        border:1px solid var(--line);
+        border-radius:var(--r);
+        padding:32px;
+        transition:border-color .3s;
+        transform-style:preserve-3d;
+    }
+
+    .stackly-services-card:hover{
+        border-color:var(--gold);
+    }
+
+    .stackly-services-card .stackly-services-card-icon{
+        font-size:2rem;
+        margin-bottom:14px;
+    }
+
+    .stackly-services-card p{
+        color:var(--mut);
+        font-size:.95rem;
+        margin-top:8px;
+    }
+
+    .stackly-services-card img{
+        border-radius:12px;
+        margin-bottom:18px;
+        height:220px;
+        width:100%;
+        object-fit:cover;
+    }
+
+    .stackly-services-img-wrap{
+        overflow:hidden;
+        border-radius:var(--r);
+        position:relative;
+        border:1px solid var(--line);
+    }
+
+    .stackly-services-img-wrap img{
+        width:100%;
+        height:480px;
+        object-fit:cover;
+        transform:scale(1.2);
+    }
+
+    .stackly-services-price-card{
+        text-align:center;
+    }
+
+    .stackly-services-price-card h3{
+        font-size:2.4rem;
+        color:var(--gold);
+        margin:10px 0;
+    }
+
+    .stackly-services-price-card ul{
+        list-style:none;
+        color:var(--mut);
+        margin:18px 0;
+    }
+
+    .stackly-services-price-card li{
+        padding:6px 0;
+        border-bottom:1px solid var(--line);
+    }
+
+    /* ---------- FAQ ---------- */
+
+    .stackly-services-faq details{
+        background:var(--card);
+        border:1px solid var(--line);
+        border-radius:12px;
+        padding:18px 22px;
+        margin-bottom:12px;
+    }
+
+    .stackly-services-faq summary{
+        cursor:pointer;
+        font-weight:600;
+    }
+
+    .stackly-services-faq p{
+        color:var(--mut);
+        margin-top:10px;
+    }
+
+    /* ---------- FORMS ---------- */
+
+    form{
+        display:grid;
+        gap:16px;
+    }
+
+    input,
+    select,
+    textarea{
+        width:100%;
+        padding:15px 18px;
+        background:#0b1121;
+        border:1px solid var(--line);
+        border-radius:12px;
+        color:var(--txt);
+        font:inherit;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus{
+        outline:0;
+        border-color:var(--gold);
+    }
+
+    /* ---------- TABLES ---------- */
+
+    table{
+        width:100%;
+        border-collapse:collapse;
+    }
+
+    th,
+    td{
+        text-align:left;
+        padding:13px 10px;
+        border-bottom:1px solid var(--line);
+        font-size:.92rem;
+    }
+
+    th{
+        color:var(--gold);
+    }
+
+    .stackly-services-table-wrap{
+        overflow-x:auto;
+    }
+
+    /* ---------- CHECKLIST ---------- */
+
+    .stackly-services-checklist{
+        list-style:none;
+    }
+
+    .stackly-services-checklist li{
+        padding:7px 0;
+        color:var(--mut);
+    }
+
+    .stackly-services-checklist li::before{
+        content:"\2713";
+        color:var(--gold);
+        margin-right:12px;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer{
+        border-top:1px solid var(--line);
+        padding:70px 0 30px;
+        background:#050813;
+    }
+
+    footer{
+        padding:70px 0 0;
+        background:radial-gradient(circle at 85% 0,#101a36,#050813 60%);
+        border-top:1px solid var(--line);
+    }
+
+    .stackly-services-foot-top{
+        display:grid;
+        grid-template-columns:1.4fr 1fr 1fr 1fr 1.4fr;
+        gap:40px;
+    }
+
+    .stackly-services-foot-brand p{
+        color:var(--mut);
+        font-size:.92rem;
+        margin:14px 0;
+    }
+
+    .stackly-services-foot-socials{
+        display:flex;
+        gap:10px;
+    }
+
+    .stackly-services-foot-socials a{
+        width:36px;
+        height:36px;
+        border:1px solid var(--line);
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        color:var(--gold);
+        background:#0b1121;
+        transition:.3s;
+    }
+
+    .stackly-services-foot-socials a:hover{
+        background:var(--gold);
+        color:#111;
+        transform:translateY(-3px);
+    }
+
+    footer h4{
+        font-family:'Inter',sans-serif;
+        color:var(--gold);
+        font-size:.82rem;
+        letter-spacing:.16em;
+        text-transform:uppercase;
+        margin-bottom:20px;
+    }
+
+    .stackly-services-foot-links a{
+        display:block;
+        color:var(--mut);
+        font-size:.92rem;
+        margin:13px 0;
+        transition:.3s;
+    }
+
+    .stackly-services-foot-links a::before{
+        content:"\203A";
+        color:var(--gold);
+        margin-right:12px;
+    }
+
+    .stackly-services-foot-links a:hover{
+        color:var(--gold);
+        transform:translateX(5px);
+    }
+
+    .stackly-services-foot-contact p{
+        display:flex;
+        gap:12px;
+        align-items:center;
+        color:var(--mut);
+        font-size:.92rem;
+        margin:13px 0;
+    }
+
+    .stackly-services-foot-contact p span{
+        color:var(--gold);
+    }
+
+    .stackly-services-foot-cta{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:14px;
+        border:1px solid var(--line);
+        background:#0d1426;
+        border-radius:12px;
+        padding:18px;
+        margin-top:22px;
+        transition:.3s;
+    }
+
+    .stackly-services-foot-cta:hover{
+        border-color:var(--gold);
+    }
+
+    .stackly-services-foot-cta b{
+        display:block;
+        font-size:.95rem;
+    }
+
+    .stackly-services-foot-cta small{
+        color:var(--mut);
+        font-size:.78rem;
+        display:block;
+        margin-top:4px;
+    }
+
+    .stackly-services-foot-cta>span{
+        color:var(--gold);
+        font-size:1.4rem;
+    }
+
+    .stackly-services-foot-mid{
+        display:grid;
+        grid-template-columns:1.1fr 2.4fr 1.5fr;
+        gap:30px;
+        align-items:center;
+        border-top:1px solid var(--line);
+        margin-top:50px;
+        padding:34px 0;
+    }
+
+    footer small{
+        color:var(--mut);
+        font-size:.8rem;
+    }
+
+    .stackly-services-foot-trust{
+        display:flex;
+        gap:14px;
+        align-items:center;
+    }
+
+    .stackly-services-foot-trust b{
+        display:block;
+    }
+
+    .stackly-services-foot-shield{
+        font-size:1.8rem;
+        border:1px solid var(--gold);
+        border-radius:12px;
+        padding:6px 10px;
+    }
+
+    .stackly-services-foot-stats{
+        display:grid;
+        grid-template-columns:repeat(4,1fr);
+        text-align:center;
+    }
+
+    .stackly-services-foot-stats div{
+        border-left:1px solid var(--line);
+        padding:0 8px;
+    }
+
+    .stackly-services-foot-stats b{
+        display:block;
+        font-size:1.05rem;
+    }
+
+    .stackly-services-foot-stats small{
+        display:block;
+    }
+
+    .stackly-services-foot-news form{
+        display:flex;
+        margin-top:12px;
+    }
+
+    .stackly-services-foot-news input{
+        border-radius:8px 0 0 8px;
+        min-width:0;
+        padding:12px 14px;
+    }
+
+    .stackly-services-foot-news .stackly-services-btn{
+        border-radius:0 8px 8px 0;
+        padding:0 20px;
+        white-space:nowrap;
+    }
+
+    .stackly-services-foot-bottom{
+        display:flex;
+        justify-content:space-between;
+        flex-wrap:wrap;
+        gap:14px;
+        border-top:1px solid var(--line);
+        padding:22px 0;
+        font-size:.85rem;
+        color:var(--mut);
+    }
+
+    .stackly-services-foot-pay em{
+        font-style:normal;
+        font-weight:700;
+        font-size:.72rem;
+        color:#fff;
+        background:#10182c;
+        border:1px solid var(--line);
+        padding:4px 10px;
+        border-radius:6px;
+        margin-left:8px;
+    }
+
+    /* ---------- LOADER ---------- */
+
+    #loader{
+        position:fixed;
+        inset:0;
+        z-index:999;
+        background:#050813;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:26px;
+        transition:transform .9s cubic-bezier(.77,0,.18,1);
+        animation:stackly-services-loader-out .5s 7s forwards;
+    }
+
+    .stackly-services-loader-logo img{
+        height:90px;
+        width:auto;
+        animation:stackly-services-pulse 1.4s ease-in-out infinite;
+    }
+
+    .stackly-services-loader-bar{
+        width:min(260px,70vw);
+        height:3px;
+        background:#222c45;
+        border-radius:3px;
+        overflow:hidden;
+    }
+
+    .stackly-services-loader-bar i{
+        display:block;
+        height:100%;
+        width:0;
+        background:linear-gradient(90deg,var(--gold),var(--gold2));
+    }
+
+    .stackly-services-loader-num{
+        font-family:'Playfair Display',serif;
+        color:var(--gold);
+        font-size:1.4rem;
+    }
+
+    @keyframes stackly-services-pulse{
+        50%{
+            transform:scale(1.08);
+            opacity:.7;
+        }
+    }
+
+    @keyframes stackly-services-loader-out{
+        to{
+            opacity:0;
+            visibility:hidden;
+        }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width:1024px){
+        .stackly-services-card-grid{
+            grid-template-columns:repeat(2,1fr);
+        }
+    }
+
+    @media (max-width:768px){
+        .stackly-services-burger{
+            display:block;
+        }
+
+        nav{
+            position:absolute;
+            top:84px;
+            left:0;
+            width:100%;
+            background:#070b16f5;
+            max-height:0;
+            overflow:hidden;
+            transition:max-height .4s;
+        }
+
+        nav.stackly-services-is-open{
+            max-height:480px;
+            border-bottom:1px solid var(--line);
+        }
+
+        nav ul{
+            flex-direction:column;
+            padding:20px;
+            gap:16px;
+        }
+
+        .stackly-services-two-col{
+            grid-template-columns:1fr;
+            gap:34px;
+        }
+
+        section{
+            padding:0;
+        }
+
+        .stackly-services-img-wrap img{
+            height:320px;
+        }
+
+        .stackly-services-ring{
+            display:none;
+        }
+    }
+
+    @media (max-width:480px){
+        .stackly-services-card-grid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-services-logo img{
+            height:56px;
+        }
+
+        .stackly-services-hero h1{
+            font-size:2.3rem;
+        }
+
+        .stackly-services-btn{
+            width:100%;
+            text-align:center;
+        }
+    }
+
+    @media (max-width:1100px){
+        .stackly-services-foot-top{
+            grid-template-columns:repeat(3,1fr);
+        }
+
+        .stackly-services-foot-mid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-services-foot-stats div:first-child{
+            border-left:0;
+        }
+    }
+
+    @media (max-width:768px){
+        footer{
+            padding-top:50px;
+        }
+
+        .stackly-services-foot-top{
+            grid-template-columns:1fr 1fr;
+            gap:30px;
+        }
+
+        .stackly-services-foot-brand,
+        .stackly-services-foot-contact{
+            grid-column:1/-1;
+        }
+    }
+
+    @media (max-width:480px){
+        .stackly-services-foot-top{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-services-foot-stats{
+            grid-template-columns:1fr 1fr;
+            row-gap:20px;
+        }
+
+        .stackly-services-foot-stats div:nth-child(odd){
+            border-left:0;
+        }
+
+        .stackly-services-foot-bottom{
+            flex-direction:column;
+            text-align:center;
+        }
+
+        .stackly-services-foot-news form{
+            flex-direction:column;
+            gap:10px;
+        }
+
+        .stackly-services-foot-news input,
+        .stackly-services-foot-news .stackly-services-btn{
+            border-radius:8px;
+            padding:13px;
+        }
+    }
+
+    /* ---------- UTILITIES ---------- */
+
+    /* replaces the former inline style="" attributes */
+
+    .stackly-services-text-muted{
+        color:var(--mut);
+    }
+
+    .stackly-services-list-muted{
+        color:var(--mut);
+        margin:16px 0 0 20px;
+    }
+
+    .stackly-services-img-failed{
+        background:linear-gradient(135deg,#1b2a52,#e6b45033);
+    }
+
+</style>
+</head>
+<body>
+
+    <!-- ============ LOADER ============ -->
+
+    <div id="loader">
+
+        <div class="stackly-services-loader-logo">
+
+            <img
+                src="./stackly.png"
+                alt="Stackly"
+            />
+
+        </div>
+
+        <div class="stackly-services-loader-bar">
+
+            <i></i>
+
+        </div>
+
+        <span class="stackly-services-loader-num">0%</span>
+
+    </div>
+
+    <!-- ============ BACKGROUND ============ -->
+
+    <div class="stackly-services-bg">
+
+        <div class="stackly-services-grid"></div>
+
+        <div class="stackly-services-ring"></div>
+
+        <div class="stackly-services-blob stackly-services-blob-1"></div>
+
+        <div class="stackly-services-blob stackly-services-blob-2"></div>
+
+        <div class="stackly-services-blob stackly-services-blob-3"></div>
+
+    </div>
+
+    <!-- ============ HEADER ============ -->
+
+    <header>
+
+        <div class="stackly-services-wrap stackly-services-header-inner">
+
+            <a
+                class="stackly-services-logo"
+                href="index.html"
+                aria-label="Stackly home"
+            >
+
+                <img
+                    src="./stackly.png"
+                    alt="Stackly"
+                />
+
+            </a>
+
+            <button
+                class="stackly-services-burger"
+                id="burger"
+                aria-label="Menu"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            >&#9776;</button>
+
+            <nav
+                id="mainNav"
+                aria-label="Primary"
+            >
+
+                <ul>
+
+                    <li>
+
+                        <a href="index.html">Home</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="about.html">About</a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            href="services.html"
+                            class="stackly-services-is-active"
+                        >Services</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="consultant.html">Consultant</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="blog.html">Blog</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">Contact</a>
+
+                    </li>
+
+                    <li>
+
+                        <a
+                            class="stackly-services-btn"
+                            id="accountBtn"
+                            href="login.html"
+                        >Login</a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- ============ HERO ============ -->
+
+        <section class="stackly-services-hero stackly-services-hero-compact">
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Services</span>
+
+                <h1 data-split>Everything tax, <em>handled</em></h1>
+
+            </div>
+
+        </section>
+
+        <!-- ============ CARD GRID ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <div class="stackly-services-card-grid">
+
+                    <div class="stackly-services-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            alt="Signing documents"
+                            loading="lazy"
+                        />
+
+                        <h3>Income Tax Returns</h3>
+
+                        <p>Salaried, business and capital-gains filing.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            alt="Cash and finance"
+                            loading="lazy"
+                        />
+
+                        <h3>GST Services</h3>
+
+                        <p>Registration, returns and refunds.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            alt="Audit analytics"
+                            loading="lazy"
+                        />
+
+                        <h3>Audit &amp; Assurance</h3>
+
+                        <p>Tax and statutory audits.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🏢</div>
+
+                        <h3>Corporate Tax</h3>
+
+                        <p>Company planning, TDS and ROC filings.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🌍</div>
+
+                        <h3>NRI Taxation</h3>
+
+                        <p>DTAA, repatriation and foreign-income advice.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">⚖️</div>
+
+                        <h3>Notice Handling</h3>
+
+                        <p>Replies, appeals and representation.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ PRICING ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Pricing</span>
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >Transparent plans</h2>
+
+                <div class="stackly-services-card-grid">
+
+                    <div class="stackly-services-card stackly-services-price-card">
+
+                        <h4>Individual</h4>
+
+                        <h3>₹1,499</h3>
+
+                        <ul>
+
+                            <li>ITR filing</li>
+
+                            <li>Deduction review</li>
+
+                            <li>Email support</li>
+
+                        </ul>
+
+                        <a
+                            class="stackly-services-btn stackly-services-btn-outline"
+                            href="contact.html"
+                        >Choose</a>
+
+                    </div>
+
+                    <div class="stackly-services-card stackly-services-price-card">
+
+                        <h4>Business</h4>
+
+                        <h3>₹7,999</h3>
+
+                        <ul>
+
+                            <li>GST + ITR</li>
+
+                            <li>Monthly books</li>
+
+                            <li>Priority support</li>
+
+                        </ul>
+
+                        <a
+                            class="stackly-services-btn"
+                            href="contact.html"
+                        >Choose</a>
+
+                    </div>
+
+                    <div class="stackly-services-card stackly-services-price-card">
+
+                        <h4>Enterprise</h4>
+
+                        <h3>Custom</h3>
+
+                        <ul>
+
+                            <li>Full compliance</li>
+
+                            <li>Audit support</li>
+
+                            <li>Dedicated consultant</li>
+
+                        </ul>
+
+                        <a
+                            class="stackly-services-btn stackly-services-btn-outline"
+                            href="contact.html"
+                        >Contact</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ FAQS ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap stackly-services-faq">
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >FAQs</h2>
+
+                <details>
+
+                    <summary>Which documents do I need?</summary>
+
+                    <p>PAN, Aadhaar, Form 16/26AS and bank statements.</p>
+
+                </details>
+
+                <details>
+
+                    <summary>How long does filing take?</summary>
+
+                    <p>Usually within 48 hours of document submission.</p>
+
+                </details>
+
+                <details>
+
+                    <summary>Do you handle notices?</summary>
+
+                    <p>Yes, replies and representation are included in Business plans.</p>
+
+                </details>
+
+            </div>
+
+        </section>
+
+        <!-- ============ INDUSTRIES ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Industries</span>
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >Specialised for your sector</h2>
+
+                <div class="stackly-services-card-grid">
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🏭</div>
+
+                        <h3>Manufacturing</h3>
+
+                        <p>Input credit, e-way bills and cost audits.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">💻</div>
+
+                        <h3>IT &amp; Software</h3>
+
+                        <p>Export of services, LUT and transfer pricing.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🏥</div>
+
+                        <h3>Healthcare</h3>
+
+                        <p>Professional tax planning and clinic compliance.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🛍️</div>
+
+                        <h3>Retail &amp; E-commerce</h3>
+
+                        <p>TCS, marketplace GST and inventory valuation.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🏗️</div>
+
+                        <h3>Construction</h3>
+
+                        <p>Works-contract GST, TDS and project accounting.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🎓</div>
+
+                        <h3>Education</h3>
+
+                        <p>Trust registration, exemptions and grants.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ PROCESS ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Process</span>
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >How an engagement works</h2>
+
+                <div class="stackly-services-card-grid">
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">1️⃣</div>
+
+                        <h3>Discovery</h3>
+
+                        <p>We map your income, entities and past filings.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">2️⃣</div>
+
+                        <h3>Strategy</h3>
+
+                        <p>A written savings and compliance plan.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">3️⃣</div>
+
+                        <h3>Execution</h3>
+
+                        <p>Preparation, filing and acknowledgement.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ ADD-ONS ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap stackly-services-two-col">
+
+                <div class="stackly-services-img-wrap">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                        alt="Extra support when you need it"
+                        loading="lazy"
+                    />
+
+                </div>
+
+                <div>
+
+                    <span class="stackly-services-eyebrow">Add-ons</span>
+
+                    <h2
+                        class="stackly-services-sec-title"
+                        data-split
+                    >Extra support when you need it</h2>
+
+                    <p
+                        class="stackly-services-text-muted"
+                        data-r
+                    >Layer additional services on any plan.</p>
+
+                    <ul class="stackly-services-list-muted">
+
+                        <li>Tax notice replies and appeals</li>
+
+                        <li>Company incorporation and ROC filings</li>
+
+                        <li>Bookkeeping and payroll</li>
+
+                        <li>Financial projections for loans</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ COMPARE ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Compare</span>
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >DIY filing vs Stackly</h2>
+
+                <div class="stackly-services-card stackly-services-table-wrap">
+
+                    <table>
+
+                        <tr>
+
+                            <th>Feature</th>
+
+                            <th>Do it yourself</th>
+
+                            <th>With Stackly</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Deduction review</td>
+
+                            <td>Limited</td>
+
+                            <td>Complete line-by-line</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Notice support</td>
+
+                            <td>None</td>
+
+                            <td>Included</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Error checks</td>
+
+                            <td>Manual</td>
+
+                            <td>Double-reviewed</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Refund tracking</td>
+
+                            <td>Self</td>
+
+                            <td>We follow up for you</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>Year-round advice</td>
+
+                            <td>No</td>
+
+                            <td>Yes</td>
+
+                        </tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ CHECKLIST ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap stackly-services-two-col">
+
+                <div class="stackly-services-img-wrap">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                        alt="Documents to keep ready"
+                        loading="lazy"
+                    />
+
+                </div>
+
+                <div>
+
+                    <span class="stackly-services-eyebrow">Checklist</span>
+
+                    <h2
+                        class="stackly-services-sec-title"
+                        data-split
+                    >Documents to keep ready</h2>
+
+                    <ul
+                        class="stackly-services-checklist"
+                        data-r
+                    >
+
+                        <li>PAN and Aadhaar</li>
+
+                        <li>Form 16 / Form 26AS / AIS</li>
+
+                        <li>Bank and loan statements</li>
+
+                        <li>Investment and insurance proofs</li>
+
+                        <li>Rent receipts and property papers</li>
+
+                        <li>GST login and sales data (businesses)</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ============ GUARANTEE ============ -->
+
+        <section>
+
+            <div class="stackly-services-wrap">
+
+                <span class="stackly-services-eyebrow">Guarantee</span>
+
+                <h2
+                    class="stackly-services-sec-title"
+                    data-split
+                >Our service promise</h2>
+
+                <div class="stackly-services-card-grid">
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">💯</div>
+
+                        <h3>Fixed, upfront fees</h3>
+
+                        <p>The price you see is the price you pay.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">⚡</div>
+
+                        <h3>48-hour turnaround</h3>
+
+                        <p>Returns prepared within two days of documents.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🛡️</div>
+
+                        <h3>Notice cover</h3>
+
+                        <p>Replies to routine notices included for a year.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">↩️</div>
+
+                        <h3>Refund follow-up</h3>
+
+                        <p>We chase your refund until it arrives.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">🔍</div>
+
+                        <h3>Double review</h3>
+
+                        <p>Every return checked by a second expert.</p>
+
+                    </div>
+
+                    <div class="stackly-services-card">
+
+                        <div class="stackly-services-card-icon">📞</div>
+
+                        <h3>Year-round access</h3>
+
+                        <p>Ask us anything, any time of year.</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+
+    <footer>
+
+        <div class="stackly-services-wrap">
+
+            <div class="stackly-services-foot-top">
+
+                <div class="stackly-services-foot-brand">
+
+                    <a
+                        href="index.html"
+                        class="stackly-services-logo"
+                    >
+
+                        <img
+                            src="./stackly.png"
+                            alt="Stackly"
+                        />
+
+                    </a>
+
+                    <p>Stackly Tax is a trusted tax consultancy that helps individuals and businesses plan smarter, file accurately and stay fully compliant.</p>
+
+                    <div class="stackly-services-foot-socials">
+
+                        <a
+                            href="error.html"
+                            aria-label="Facebook"
+                        ><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h2V5h-2.5C11 5 10 6.5 10 8.5V10H8v3h2v7h3v-7h2l.5-3H13V8.6c0-.4.2-.6 1-.6z" /></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="LinkedIn"
+                        ><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10v8M6 6.5v.1M10 18v-8M10 13c0-2 1.5-3 3-3s3 1 3 3v5" /></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="X"
+                        ><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5l14 14M19 5L5 19" /></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="Instagram"
+                        ><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5" /><circle cx="12" cy="12" r="3.5" /><path d="M16.8 7.2v.1" /></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="YouTube"
+                        ><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="4" /><path d="M10.5 9.5v5l4-2.5z" /></svg></a>
+
+                    </div>
+
+                </div>
+
+                <div class="stackly-services-foot-links">
+
+                    <h4>Services</h4>
+
+                    <a href="services.html">Income Tax Filing</a>
+
+                    <a href="services.html">GST Compliance</a>
+
+                    <a href="services.html">Audit &amp; Assurance</a>
+
+                    <a href="services.html">Corporate Tax</a>
+
+                    <a href="services.html">NRI Taxation</a>
+
+                    <a href="services.html">Pricing</a>
+
+                </div>
+
+                <div class="stackly-services-foot-links">
+
+                    <h4>Resources</h4>
+
+                    <a href="blog.html">Blog</a>
+
+                    <a href="blog.html">Tax Guides</a>
+
+                    <a href="error.html">FAQs</a>
+
+                    <a href="consultant.html">Book a Slot</a>
+
+                    <a href="error.html">Help Center</a>
+
+                    <a href="login.html">Client Login</a>
+
+                </div>
+
+                <div class="stackly-services-foot-links">
+
+                    <h4>Company</h4>
+
+                    <a href="about.html">Our Story</a>
+
+                    <a href="consultant.html">Consultants</a>
+
+                    <a href="error.html">Careers</a>
+
+                    <a href="contact.html">Contact Us</a>
+
+                    <a href="error.html">Terms of Service</a>
+
+                    <a href="error.html">Privacy Policy</a>
+
+                </div>
+
+                <div class="stackly-services-foot-contact">
+
+                    <h4>Get in Touch</h4>
+
+                    <p><span>&#9993;</span>hello@stacklytax.com</p>
+
+                    <p><span>&#9990;</span>+91 98765 43210</p>
+
+                    <p><span>&#9906;</span>Salem, Tamil Nadu, India</p>
+
+                    <a
+                        class="stackly-services-foot-cta"
+                        href="consultant.html"
+                    >
+
+                        <div>
+
+                            <b>Save More. Stay Compliant.</b>
+
+                            <small>Book a free consultation with our certified tax experts.</small>
+
+                        </div>
+
+                        <span>&rarr;</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="stackly-services-foot-mid">
+
+                <div class="stackly-services-foot-trust">
+
+                    <span class="stackly-services-foot-shield">&#128737;</span>
+
+                    <div>
+
+                        <b>Trusted by Thousands</b>
+
+                        <small>Secure data. Verified experts. Compliant filing.</small>
+
+                    </div>
+
+                </div>
+
+                <div class="stackly-services-foot-stats">
+
+                    <div>
+
+                        <span>&#128196;</span>
+
+                        <b>12.5K+</b>
+
+                        <small>Returns Filed</small>
+
+                    </div>
+
+                    <div>
+
+                        <span>&#127941;</span>
+
+                        <b>18+</b>
+
+                        <small>Years Experience</small>
+
+                    </div>
+
+                    <div>
+
+                        <span>&#128176;</span>
+
+                        <b>450Cr</b>
+
+                        <small>Tax Saved</small>
+
+                    </div>
+
+                    <div>
+
+                        <span>&#11088;</span>
+
+                        <b>98%</b>
+
+                        <small>Client Retention</small>
+
+                    </div>
+
+                </div>
+
+                <div class="stackly-services-foot-news">
+
+                    <h4>Stay Updated</h4>
+
+                    <small>Get the latest tax updates, deadlines and saving tips.</small>
+
+                    <form id="newsForm">
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            aria-label="Email"
+                            required
+                        />
+
+                        <button class="stackly-services-btn">Subscribe</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="stackly-services-foot-bottom">
+
+                <span>&copy; 2026 Stackly Tax Consultants. All rights reserved.</span>
+
+                <span class="stackly-services-foot-pay">&#128274; Secure Payments <em>VISA</em><em>Mastercard</em><em>RuPay</em><em>UPI</em></span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+(function(){
+  'use strict';
+
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var SESSION_KEY = 'stackly_tax_user';
+  var hasGsap = !!(window.gsap && window.ScrollTrigger);
+  var canHover = window.matchMedia('(hover:hover)').matches;
+
+  /* ---------- Loader ---------- */
+  var loader = $('#loader');
+  if(loader){
+    var bar = $('i', loader), num = $('.stackly-services-loader-num', loader), start = performance.now();
+    if(hasGsap){ gsap.globalTimeline.pause(); }
+    document.body.style.overflow = 'hidden';
+    (function tick(now){
+      var p = Math.min((now - start) / 1600, 1), e = 1 - Math.pow(1 - p, 3);
+      bar.style.width = e * 100 + '%';
+      num.textContent = Math.round(e * 100) + '%';
+      if(p < 1){ requestAnimationFrame(tick); return; }
+      loader.classList.add('stackly-services-is-done');
+      document.body.style.overflow = '';
+      setTimeout(function(){
+        if(hasGsap){ gsap.globalTimeline.play(); ScrollTrigger.refresh(); }
+      }, 450);
+      setTimeout(function(){ loader.remove(); }, 1000);
+    })(start);
+  }
+
+  /* ---------- Images: fallback when a photo fails to load ---------- */
+  $$('img[loading="lazy"]').forEach(function(img){
+    var fail = function(){ img.classList.add('stackly-services-img-failed'); img.removeAttribute('src'); };
+    img.addEventListener('error', fail);
+    if(img.complete && img.naturalWidth === 0 && img.getAttribute('src')){ fail(); }
+  });
+
+  /* ---------- Header: account button + mobile menu ---------- */
+  var user = null;
+  try{ user = JSON.parse(localStorage.getItem(SESSION_KEY)); }catch(err){ user = null; }
+  var account = $('#accountBtn');
+  if(user && account){
+    account.textContent = 'Dashboard';
+    account.setAttribute('href', user.role === 'admin' ? 'admin.html' : 'dashboard.html');
+  }
+
+  var burger = $('#burger'), nav = $('#mainNav');
+  function setMenu(open){
+    nav.classList.toggle('stackly-services-is-open', open);
+    burger.classList.toggle('stackly-services-is-open', open);
+    burger.innerHTML = open ? '&#10005;' : '&#9776;';
+    burger.setAttribute('aria-expanded', open);
+  }
+  burger.addEventListener('click', function(){ setMenu(!nav.classList.contains('stackly-services-is-open')); });
+  $$('a', nav).forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 768){ setMenu(false); } });
+
+  /* ---------- FAQ: one answer open at a time ---------- */
+  $$('.stackly-services-faq details').forEach(function(d){
+    d.addEventListener('toggle', function(){
+      if(!d.open){ return; }
+      $$('.stackly-services-faq details').forEach(function(o){ if(o !== d){ o.open = false; } });
+    });
+  });
+
+  /* ---------- Forms ---------- */
+  var bookForm = $('#bookForm');
+  if(bookForm){
+    bookForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      bookForm.reset();
+      alert('Request sent! We will confirm shortly.');
+    });
+  }
+
+  var newsForm = $('#newsForm');
+  if(newsForm){
+    newsForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      $('button', newsForm).textContent = 'Subscribed \u2713';
+      newsForm.reset();
+    });
+  }
+
+  /* ---------- Animations ---------- */
+  if(!hasGsap){ return; }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animated background
+  gsap.to('.stackly-services-grid', {backgroundPosition:'0 600px', duration:14, repeat:-1, ease:'none'});
+  gsap.to('.stackly-services-ring', {rotation:360, duration:40, repeat:-1, ease:'none'});
+  ['.stackly-services-blob-1', '.stackly-services-blob-2', '.stackly-services-blob-3'].forEach(function(sel, i){
+    gsap.to(sel, {x:'random(-160,160)', y:'random(-120,120)', scale:'random(.8,1.3)', duration:7 + i * 2, repeat:-1, yoyo:true, ease:'sine.inOut'});
+  });
+  window.addEventListener('mousemove', function(e){
+    var x = e.clientX / window.innerWidth - .5, y = e.clientY / window.innerHeight - .5;
+    gsap.to('.stackly-services-blob-1', {xPercent:x * 40, yPercent:y * 40, duration:1.5});
+    gsap.to('.stackly-services-blob-2', {xPercent:-x * 50, yPercent:-y * 50, duration:1.8});
+  });
+
+  // Split text: characters slide up out of masked words
+  function splitText(el){
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType !== 3){ walk(c); return; }
+        var frag = document.createDocumentFragment();
+        c.textContent.split(/(\s+)/).forEach(function(t){
+          if(!t.trim()){ frag.append(t); return; }
+          var w = document.createElement('span');
+          w.className = 'stackly-services-word';
+          Array.prototype.slice.call(t).forEach(function(ch){
+            var s = document.createElement('span');
+            s.className = 'stackly-services-char';
+            s.textContent = ch;
+            w.append(s);
+          });
+          frag.append(w);
+        });
+        c.replaceWith(frag);
+      });
+    })(el);
+    gsap.from($$('.stackly-services-char', el), {yPercent:120, rotation:8, opacity:0, duration:1, stagger:.025, ease:'power4.out', scrollTrigger:{trigger:el, start:'top 90%'}});
+  }
+  $$('[data-split]').forEach(splitText);
+
+  // Reveal on scroll
+  $$('[data-r]').forEach(function(el){
+    gsap.from(el, {y:60, opacity:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%'}});
+  });
+
+  // Card groups
+  $$('.stackly-services-card-grid').forEach(function(group){
+    gsap.from(group.children, {y:80, opacity:0, rotateX:-15, stagger:.15, duration:1, ease:'power3.out', scrollTrigger:{trigger:group, start:'top 85%'}});
+  });
+
+  // Image frames: wipe in, then drift with scroll
+  $$('.stackly-services-img-wrap').forEach(function(wrap){
+    var img = $('img', wrap);
+    gsap.from(wrap, {clipPath:'inset(0 100% 0 0)', duration:1.4, ease:'power4.inOut', scrollTrigger:{trigger:wrap, start:'top 85%'}});
+    gsap.to(img, {scale:1, yPercent:-8, ease:'none', scrollTrigger:{trigger:wrap, scrub:true}});
+  });
+
+  // Marquee
+  $$('.stackly-services-marquee div').forEach(function(m){
+    m.innerHTML += m.innerHTML;
+    gsap.to(m, {xPercent:-50, duration:25, repeat:-1, ease:'none'});
+  });
+
+  // Counters
+  $$('[data-count]').forEach(function(el){
+    var o = {v:0}, target = +el.dataset.count;
+    gsap.to(o, {v:target, duration:2.2, ease:'power2.out', scrollTrigger:{trigger:el, start:'top 90%'}, onUpdate:function(){
+      el.textContent = Math.round(o.v).toLocaleString('en-IN') + (el.dataset.s || '');
+    }});
+  });
+
+  // Hover effects: card tilt + magnetic buttons
+  if(canHover){
+    $$('.stackly-services-card').forEach(function(c){
+      c.addEventListener('mousemove', function(e){
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        gsap.to(c, {rotateY:x * 10, rotateX:-y * 10, transformPerspective:800, duration:.4});
+      });
+      c.addEventListener('mouseleave', function(){ gsap.to(c, {rotateX:0, rotateY:0, duration:.6}); });
+    });
+    $$('.stackly-services-btn').forEach(function(b){
+      b.addEventListener('mousemove', function(e){
+        var r = b.getBoundingClientRect();
+        gsap.to(b, {x:(e.clientX - r.left - r.width / 2) * .25, y:(e.clientY - r.top - r.height / 2) * .25, duration:.3});
+      });
+      b.addEventListener('mouseleave', function(){ gsap.to(b, {x:0, y:0, duration:.6, ease:'elastic.out(1,.4)'}); });
+    });
+  }
+})();
+
+</script>
+
+</body>
+</html>
